@@ -1,133 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Mobi — Mobiliário Corporativo · São Paulo</title>
+<meta name="description" content="Mobiliário corporativo completo — do projeto à instalação. 40 anos de mercado. Atendemos todo o estado de São Paulo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1B3A5C;
+  --blue-mid:#2A5080;
+  --walnut:#C4A882;
+  --walnut-dark:#A8885E;
+  --walnut-light:#F2EBE0;
+  --linen:#F8F5F0;
+  --charcoal:#2C2C2A;
+  --gray:#6B7280;
+  --white:#FFFFFF;
+  --r:4px;
+}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--linen);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased}
 
-PROJETO
-Mobi
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;background:rgba(27,58,92,0.97);backdrop-filter:blur(12px)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:32px;height:32px}
+.nav-logo span{border-radius:2px}
+.nl1{background:rgba(255,255,255,0.5)}
+.nl2{background:var(--walnut)}
+.nl3{background:var(--walnut-dark)}
+.nl4{background:rgba(255,255,255,0.25)}
+.nav-text{display:flex;flex-direction:column;gap:0px}
+.nav-projeto{font-size:8px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--walnut)}
+.nav-mobi{font-family:"Playfair Display",serif;font-size:20px;font-weight:700;color:var(--white);line-height:1}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--walnut);color:var(--white);border:none;padding:10px 22px;border-radius:var(--r);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--walnut-dark)}
 
-Solicitar orçamento
+/* HERO */
+.hero{min-height:100vh;background:var(--blue);display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(120deg,rgba(27,58,92,0.85) 40%,rgba(27,58,92,0.6) 100%);z-index:1}
+.hero-content{position:relative;z-index:2}
+.hero-top{display:flex;align-items:center;gap:32px;margin-bottom:48px}
+.hero-logo-big{display:grid;grid-template-columns:1fr 1fr;gap:5px;width:56px;height:56px;flex-shrink:0}
+.hero-logo-big span{border-radius:3px}
+.hlb1{background:rgba(255,255,255,0.6)}
+.hlb2{background:var(--walnut)}
+.hlb3{background:var(--walnut-dark)}
+.hlb4{background:rgba(255,255,255,0.2)}
+.hero-brand-text{display:flex;flex-direction:column}
+.hbt-projeto{font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--walnut)}
+.hbt-mobi{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;color:var(--white);line-height:1}
+.hero-divider{width:1px;height:56px;background:rgba(255,255,255,0.2)}
+.hero-slogan{font-family:"Playfair Display",serif;font-size:clamp(16px,2vw,20px);font-style:italic;color:rgba(255,255,255,0.75);line-height:1.5;max-width:520px}
+.hero-slogan strong{color:var(--walnut);font-style:normal}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px}
+.hero-tag-text{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--walnut)}
+.hero-tag-line{width:40px;height:1px;background:var(--walnut);opacity:.5}
+.hero-h1{font-family:"Playfair Display",serif;font-size:clamp(40px,5.5vw,70px);font-weight:700;color:var(--white);line-height:1.1;max-width:780px;margin-bottom:16px}
+.hero-h1 em{font-style:italic;color:var(--walnut)}
+.hero-sub{font-size:18px;color:var(--white);max-width:580px;margin-bottom:36px;font-weight:300;line-height:1.7}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:60px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--walnut);color:var(--white);padding:14px 28px;border-radius:var(--r);font-size:15px;font-weight:600;text-decoration:none;transition:background .2s,transform .1s}
+.btn-primary:hover{background:var(--walnut-dark);transform:translateY(-1px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);padding:14px 28px;border-radius:var(--r);border:1px solid rgba(255,255,255,0.3);font-size:15px;font-weight:400;text-decoration:none;transition:border-color .2s}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.7)}
+.hero-stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.1);padding-top:40px}
+.stat{padding-right:48px;margin-right:48px;border-right:1px solid rgba(255,255,255,0.1)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:"Playfair Display",serif;font-size:48px;font-weight:700;color:var(--white);line-height:1}
+.stat-num span{font-size:28px;color:var(--white)}
+.stat-lab{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);opacity:.6;margin-top:4px}
 
+/* SECTION SHARED */
+.s-head{text-align:center;margin-bottom:64px}
+.s-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--walnut);margin-bottom:14px}
+.s-title{font-family:"Playfair Display",serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:var(--blue);line-height:1.2}
+.s-title-white{color:var(--white)}
+.s-sub{font-size:17px;color:var(--gray);max-width:560px;margin:16px auto 0;line-height:1.7}
+.s-sub-white{color:rgba(255,255,255,0.65)}
+section{padding:96px 48px}
 
+/* POR QUE */
+.porq{background:var(--white)}
+.porq-intro{font-size:18px;color:var(--charcoal);max-width:680px;margin:0 auto 56px;text-align:center;line-height:1.75;font-weight:400}
+.porq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1100px;margin:0 auto}
+.porq-card{padding:40px 32px;background:var(--linen);border-radius:6px;border-top:3px solid transparent;transition:border-color .2s}
+.porq-card:hover{border-top-color:var(--walnut)}
+.pq-num{font-family:"Playfair Display",serif;font-size:48px;font-weight:700;color:var(--walnut);opacity:.35;line-height:1;margin-bottom:16px}
+.pq-title{font-size:17px;font-weight:600;color:var(--blue);margin-bottom:10px}
+.pq-text{font-size:15px;color:var(--gray);line-height:1.7}
 
-MOBILIÁRIO CORPORATIVO · SÃO PAULO
-Do projeto à instalação, uma solução completa.
-Enquanto outras empresas vendem móveis, nós entregamos projetos completos — do levantamento à instalação — para que você não precise gerenciar múltiplos fornecedores.
+/* SHOWROOM */
+.showroom{background:var(--blue);padding:96px 48px}
+.showroom-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.showroom-cta{margin-top:32px;display:flex;flex-direction:column;gap:10px}
+.showroom-cta .btn-primary{width:fit-content}
+.showroom-note{font-size:13px;color:rgba(255,255,255,0.5)}
+.showroom-gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:220px 180px;gap:8px;border-radius:6px;overflow:hidden}
+.sg-main{grid-column:1/3;background:linear-gradient(135deg,#1a3352,#243d5c);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:12px;letter-spacing:.1em}
+.sg-sub{background:linear-gradient(135deg,#1e3a58,#243d5c);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.1);font-size:11px;letter-spacing:.08em}
 
-Falar pelo WhatsApp
-Resposta em até 6 horas
-40+
-ANOS DE MERCADO
-100%
-DO PROJETO À INSTALAÇÃO
-SP
-ESTADO DE SÃO PAULO
+/* PORTFOLIO */
+.portfolio{background:var(--blue);padding:96px 48px}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1100px;margin:0 auto}
+.port-card{background:linear-gradient(135deg,#1a3352,#243d5c);border-radius:6px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;color:rgba(255,255,255,0.12);font-size:12px;letter-spacing:.1em}
 
-PROJETO
-Mobi
+/* PRODUTOS */
+.produtos{background:var(--linen)}
+.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:780px;margin:0 auto}
+.prod-card{background:var(--white);border-radius:6px;overflow:hidden;transition:box-shadow .2s}
+.prod-card:hover{box-shadow:0 8px 32px rgba(27,58,92,0.1)}
+.prod-img-wrap{height:220px;background:var(--walnut-light);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.prod-placeholder{background:linear-gradient(135deg,var(--walnut-light),#e8ddd0);width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(100,80,50,.25);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.prod-body{padding:24px}
+.prod-title{font-family:"Playfair Display",serif;font-size:18px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.prod-text{font-size:14px;color:var(--gray);line-height:1.65;margin-bottom:16px}
+.prod-tags{display:flex;flex-wrap:wrap;gap:6px}
+.prod-tag{font-size:11px;font-weight:500;color:var(--walnut-dark);background:var(--walnut-light);padding:3px 10px;border-radius:20px}
 
-NOSSA PROMESSA
-"Do projeto à instalação, com a precisão de quem faz isso há 40 anos."
-POR QUE A PROJETO MOBI
-O atendimento que os clientes elogiam — e voltam por isso.
-Nosso diferencial não está só no produto. Está em como tratamos cada projeto, do primeiro contato à entrega.
-01
-Agilidade real
-Propostas entregues com rapidez. Você não fica esperando dias por um orçamento — respondemos com clareza e sem enrolação.
-02
-Um único parceiro
-Do levantamento à instalação, você fala com a mesma equipe. Sem repasses, sem ruído, sem surpresas na entrega.
-03
-Mesmo cuidado para todos
-Do pequeno empreendedor às grandes corporações, cada cliente recebe atenção equivalente. O tamanho do projeto não muda a qualidade do serviço.
+/* CADEIRAS */
+.cadeiras{background:var(--white)}
+.cad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
 
+/* LOCKERS */
+.lockers{background:var(--blue);padding:96px 48px}
+.lock-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.lock-img-wrap{border-radius:6px;overflow:hidden;height:420px;background:linear-gradient(135deg,#1a3352,#243d5c);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.1);font-size:12px;letter-spacing:.1em}
+.lock-hero-text{font-family:"Playfair Display",serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--white);line-height:1.3;margin-bottom:12px}
+.lock-lead{font-size:17px;font-weight:600;color:var(--white);line-height:1.6;margin-bottom:32px}
+.lock-features{display:flex;flex-direction:column;gap:24px}
+.lock-feat{display:flex;gap:16px;align-items:flex-start}
+.lf-icon{width:40px;height:40px;background:rgba(196,168,130,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.lf-title{font-size:15px;font-weight:600;color:var(--white);margin-bottom:4px}
+.lf-text{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6}
 
+/* ESTANTES */
+.estantes{background:var(--white);padding:96px 48px}
+.est-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.est-card{border:1px solid var(--walnut-light);border-radius:6px;padding:28px 24px}
+.est-num{font-family:"Playfair Display",serif;font-size:36px;font-weight:700;color:var(--walnut);opacity:.5;margin-bottom:12px}
+.est-title{font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.est-text{font-size:14px;color:var(--gray);line-height:1.65}
 
-Nosso showroom em São Paulo
-Cada ambiente que você vê aqui foi montado com os mesmos produtos que entregamos aos nossos clientes. Venha visitar — ou fale conosco pelo WhatsApp.
+/* SEGMENTOS */
+.segmentos{background:var(--linen)}
+.seg-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;max-width:1100px;margin:0 auto}
+.seg-card{background:var(--white);border-radius:6px;padding:24px 16px;text-align:center;border:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+.seg-card:hover{border-color:var(--walnut);box-shadow:0 4px 16px rgba(27,58,92,0.07)}
+.seg-icon{display:block;font-size:28px;margin-bottom:10px}
+.seg-name{font-size:12px;font-weight:600;color:var(--blue);line-height:1.3}
 
-Agendar visita
-PROJETOS REALIZADOS
-Ambientes que entregamos.
-Cada projeto é único — desde a sala de reunião até o espaço operacional completo.
+/* COMO FUNCIONA */
+.como{background:var(--blue)}
+.ps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1100px;margin:0 auto}
+.ps-step{text-align:center;padding:0 16px}
+.ps-num{font-family:"Playfair Display",serif;font-size:56px;font-weight:700;color:var(--walnut);line-height:1;margin-bottom:16px}
+.ps-title{font-size:15px;font-weight:600;color:var(--white);margin-bottom:10px}
+.ps-text{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7}
 
+/* CTA FINAL */
+.cta-final{background:var(--blue);padding:80px 48px;text-align:center}
+.cta-final h2{font-family:"Playfair Display",serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;color:var(--white);margin-bottom:16px;font-style:italic}
+.cta-final p{font-size:17px;color:rgba(255,255,255,0.7);max-width:480px;margin:0 auto 36px;line-height:1.7}
+.btn-final{display:inline-flex;align-items:center;gap:10px;background:var(--walnut);color:var(--white);padding:16px 36px;border-radius:var(--r);font-size:16px;font-weight:600;text-decoration:none;transition:background .2s}
+.btn-final:hover{background:var(--walnut-dark)}
+.cta-note{font-size:12px;color:rgba(255,255,255,0.35);margin-top:16px}
 
-LINHA DE MESAS
-Para o diretor ou para a equipe.
-Mesas executivas e operacionais com acabamento premium, em diferentes configurações e tamanhos.
+/* FOOTER */
+footer{background:var(--blue);border-top:1px solid rgba(255,255,255,0.08);padding:40px 48px;display:flex;align-items:center;justify-content:space-between}
+.footer-brand{font-family:"Playfair Display",serif;font-size:18px;color:var(--white);font-weight:700}
+.footer-brand span{color:var(--walnut)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
 
-LINHA EXECUTIVA
-Boss
+@media(max-width:900px){
+  nav{padding:14px 24px}
+  .hero{padding:100px 24px 60px}
+  .hero-top{flex-direction:column;align-items:flex-start;gap:16px}
+  .hero-divider{display:none}
+  section{padding:72px 24px}
+  .porq-grid,.cad-grid{grid-template-columns:1fr 1fr}
+  .seg-grid{grid-template-columns:repeat(3,1fr)}
+  .showroom-inner,.lock-inner{grid-template-columns:1fr}
+  .ps-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .est-grid{grid-template-columns:1fr 1fr}
+  .port-grid{grid-template-columns:1fr 1fr}
+  .prod-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
 
-LINHA EXECUTIVA PREMIUM
-Boss Premium
-LINHA DE CADEIRAS
-Conforto e ergonomia para cada ambiente.
-Do operacional ao corporativo, diversas linhas para cada perfil de uso e orçamento.
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">
+      <span class="nl1"></span><span class="nl2"></span>
+      <span class="nl3"></span><span class="nl4"></span>
+    </div>
+    <div class="nav-text">
+      <span class="nav-projeto">Projeto</span>
+      <span class="nav-mobi">Mobi</span>
+    </div>
+  </a>
+  <a class="nav-cta" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" target="_blank">
+    Solicitar orçamento
+  </a>
+</nav>
 
-Clássica Diretor
-Linha executiva
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="hero-tag-line"></span>
+      <span class="hero-tag-text"><strong>Mobiliário Corporativo · São Paulo</strong></span>
+    </div>
+    <h1 class="hero-h1">Do projeto à instalação,<br><em>uma solução completa.</em></h1>
+    <p class="hero-sub">Enquanto outras empresas vendem móveis, nós entregamos projetos completos, do levantamento à instalação, para que você não precise gerenciar múltiplos fornecedores.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" target="_blank">
+        Falar pelo WhatsApp
+      </a>
+      <a class="btn-secondary" href="#como-funciona">Como funciona</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">40<span>+</span></div>
+        <div class="stat-lab">Anos de mercado</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-lab">Do projeto à instalação</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">SP</div>
+        <div class="stat-lab">Estado de São Paulo</div>
+      </div>
+    </div>
+    <div class="hero-top" style="margin-top:48px;margin-bottom:0;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1)">
+      <div class="hero-logo-big">
+        <span class="hlb1"></span><span class="hlb2"></span>
+        <span class="hlb3"></span><span class="hlb4"></span>
+      </div>
+      <div class="hero-brand-text">
+        <span class="hbt-projeto">Projeto</span>
+        <span class="hbt-mobi">Mobi</span>
+      </div>
+      <div class="hero-divider"></div>
+      <p class="hero-slogan">Do projeto à instalação, com a precisão de quem faz isso <strong>há mais de 40 anos.</strong></p>
+    </div>
+  </div>
+</section>
 
-Sky
-Linha operacional
+<!-- POR QUE -->
+<section class="porq" id="por-que">
+  <div class="s-head">
+    <span class="s-tag">Nosso diferencial</span>
+    <h2 class="s-title">Por que a Projeto Mobi</h2>
+  </div>
+  <p class="porq-intro">O atendimento que os clientes elogiam e voltam por isso. Nosso diferencial não está só no produto. Está em como tratamos cada projeto, do primeiro contato à entrega.</p>
+  <div class="porq-grid">
+    <div class="porq-card">
+      <div class="pq-num">01</div>
+      <div class="pq-title">Agilidade real</div>
+      <p class="pq-text">Propostas entregues com rapidez. Você não fica esperando dias por um orçamento, respondemos com clareza e sem enrolação.</p>
+    </div>
+    <div class="porq-card">
+      <div class="pq-num">02</div>
+      <div class="pq-title">Um único parceiro</div>
+      <p class="pq-text">Do levantamento à instalação, você fala com a mesma equipe. Sem repasses, sem ruído, sem surpresas na entrega.</p>
+    </div>
+    <div class="porq-card">
+      <div class="pq-num">03</div>
+      <div class="pq-title">Mesmo cuidado para todos</div>
+      <p class="pq-text">Do pequeno empreendedor às grandes corporações, cada cliente recebe atenção equivalente. O tamanho do projeto não muda a qualidade do serviço.</p>
+    </div>
+  </div>
+</section>
 
-Styllus
-Linha operacional
+<!-- SHOWROOM -->
+<section class="showroom" id="showroom">
+  <div class="showroom-inner">
+    <div class="showroom-text">
+      <span class="s-tag">Nosso showroom em São Paulo</span>
+      <h2 class="s-title s-title-white">Ambientes reais,<br>produtos reais.</h2>
+      <p class="s-sub s-sub-white" style="margin:14px 0 0;text-align:left">Cada ambiente que você vê aqui foi montado com os mesmos produtos que entregamos aos nossos clientes. Venha visitar ou fale conosco pelo WhatsApp.</p>
+      <div class="showroom-cta">
+        <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+visita+ao+showroom" target="_blank">Agendar visita</a>
+        <span class="showroom-note">Ou fale conosco pelo WhatsApp</span>
+      </div>
+    </div>
+    <div class="showroom-gallery">
+      <div class="sg-main">SHOWROOM · SÃO PAULO</div>
+      <div class="sg-sub">AMBIENTE 01</div>
+      <div class="sg-sub">AMBIENTE 02</div>
+    </div>
+  </div>
+</section>
 
-Try Cromada
-Linha premium
-LOCKERS E ROUPEIROS
-Um dos produtos mais buscados — e mais entregues.
-Lockers para vestiários, academias, escolas e escritórios. Personalizáveis em cores, tamanhos e sistemas de fechadura.
+<!-- PORTFOLIO -->
+<section class="portfolio" id="projetos">
+  <div class="s-head">
+    <span class="s-tag">Portfólio</span>
+    <h2 class="s-title s-title-white">Projetos realizados</h2>
+    <p class="s-sub" style="color:rgba(255,255,255,0.65)">Ambientes que entregamos. Cada projeto é único, desde a sala de reunião até o espaço operacional completo.</p>
+  </div>
+  <div class="port-grid">
+    <div class="port-card">PROJETO 01</div>
+    <div class="port-card">PROJETO 02</div>
+    <div class="port-card">PROJETO 03</div>
+  </div>
+</section>
 
-Disponível em diversas cores e combinações — personalizável para a identidade do seu espaço.
+<!-- MESAS -->
+<section class="produtos" id="mesas">
+  <div class="s-head">
+    <span class="s-tag">Linha de produtos</span>
+    <h2 class="s-title">Linha de mesas</h2>
+    <p class="s-sub">Para o diretor ou para a equipe. Mesas executivas e operacionais com acabamento premium, em diferentes configurações.</p>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <div class="prod-img-wrap"><div class="prod-placeholder">Boss</div></div>
+      <div class="prod-body">
+        <div class="prod-title">Boss</div>
+        <p class="prod-text">Linha executiva para diretores e gerentes. Acabamento em madeira com detalhes refinados e design que comunica autoridade.</p>
+        <div class="prod-tags"><span class="prod-tag">Executivo</span><span class="prod-tag">Premium</span></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img-wrap"><div class="prod-placeholder">Boss Premium</div></div>
+      <div class="prod-body">
+        <div class="prod-title">Boss Premium</div>
+        <p class="prod-text">Linha executiva de alto padrão. Materiais selecionados, acabamento superior para ambientes que exigem o melhor.</p>
+        <div class="prod-tags"><span class="prod-tag">Premium</span><span class="prod-tag">Alto padrão</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-Instalados com base e banco integrado — solução completa para vestiários corporativos.
-ESTANTES E ARMÁRIOS
-Organização que se adapta ao seu espaço.
-Estantes modulares e armários com nichos para ambientes corporativos, educacionais e institucionais.
+<!-- CADEIRAS -->
+<section class="cadeiras" id="cadeiras">
+  <div class="s-head">
+    <span class="s-tag">Linha de produtos</span>
+    <h2 class="s-title">Linha de cadeiras</h2>
+    <p class="s-sub">Conforto e ergonomia para cada ambiente. Do operacional ao corporativo, diversas linhas para cada perfil de uso e orçamento.</p>
+  </div>
+  <div class="cad-grid" style="max-width:1100px;margin:0 auto">
+    <div class="prod-card">
+      <div class="prod-img-wrap"><div class="prod-placeholder">Clássica</div></div>
+      <div class="prod-body">
+        <div class="prod-title">Clássica Diretor</div>
+        <p class="prod-text">Cadeira executiva com encosto alto, apoio lombar e acabamento premium. Para quem conduz.</p>
+        <div class="prod-tags"><span class="prod-tag">Executivo</span></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img-wrap"><div class="prod-placeholder">Sky</div></div>
+      <div class="prod-body">
+        <div class="prod-title">Sky Operacional</div>
+        <p class="prod-text">Alta durabilidade para ambientes de call center, escritórios e operações de grande volume.</p>
+        <div class="prod-tags"><span class="prod-tag">Operacional</span></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img-wrap"><div class="prod-placeholder">Styllus</div></div>
+      <div class="prod-body">
+        <div class="prod-title">Styllus</div>
+        <p class="prod-text">Linha operacional premium com design moderno. Equilíbrio entre estética e funcionalidade.</p>
+        <div class="prod-tags"><span class="prod-tag">Operacional</span><span class="prod-tag">Design</span></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img-wrap"><div class="prod-placeholder">Try Cromada</div></div>
+      <div class="prod-body">
+        <div class="prod-title">Try Cromada</div>
+        <p class="prod-text">Estrutura cromada com elegância e resistência. Para ambientes corporativos de alto padrão.</p>
+        <div class="prod-tags"><span class="prod-tag">Premium</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-01
-Modulares e escaláveis
-Configurações sob medida — da pequena sala ao espaço corporativo amplo.
-02
-Acabamentos variados
-Madeira, metal, nichos abertos ou fechados — adequamos à identidade do espaço.
-03
-Instalação incluída
-Entregamos e instalamos — sem terceiros, sem complicação, sem surpresas.
-SEGMENTOS ATENDIDOS
-Soluções para cada tipo de ambiente.
-Diversas linhas de mobiliário, adaptadas ao uso e às exigências de cada setor.
-🏢
-Corporativo
-🎓
-Educacional
-🏛️
-Institucional
-🏗️
-Público
-🏥
-Saúde e Hospitalar
-🍽️
-Auditórios e Refeitórios
-COMO FUNCIONA
-Do primeiro contato à instalação.
-Um processo claro, sem surpresas — para que você foque no seu negócio.
-01
-Contato e levantamento
-Entendemos o seu espaço, volume, prazo e necessidades do projeto.
-02
-Proposta personalizada
-Proposta detalhada com produtos adequados ao seu ambiente e orçamento.
-03
-Aprovação e produção
-Com a proposta aprovada, iniciamos com acompanhamento direto da nossa equipe.
-04
-Entrega e instalação
-A mesma equipe que conduziu o projeto realiza a entrega e instalação.
-Solicite seu orçamento agora.
-Conte o que você precisa. Nossa equipe retorna com uma proposta clara e sem compromisso — em até 6 horas para projetos simples.
+<!-- LOCKERS -->
+<section class="lockers" id="lockers">
+  <div class="lock-inner">
+    <div>
+      <span class="s-tag">Linha de produtos</span>
+      <h2 class="lock-hero-text">Lockers e roupeiros</h2>
+      <p class="lock-lead">Um dos produtos mais buscados, e mais entregues. Lockers para vestiários, academias, escolas e escritórios.</p>
+      <div class="lock-features">
+        <div class="lock-feat">
+          <div class="lf-icon">🎨</div>
+          <div>
+            <div class="lf-title">Personalizável</div>
+            <p class="lf-text">Disponível em diversas cores e combinações, personalizável para a identidade do seu espaço.</p>
+          </div>
+        </div>
+        <div class="lock-feat">
+          <div class="lf-icon">🔒</div>
+          <div>
+            <div class="lf-title">Sistemas de fechadura</div>
+            <p class="lf-text">Múltiplas opções, chave, cadeado, senha e mais.</p>
+          </div>
+        </div>
+        <div class="lock-feat">
+          <div class="lf-icon">📐</div>
+          <div>
+            <div class="lf-title">Tamanhos e configurações</div>
+            <p class="lf-text">Disponível em cores, materiais, tamanhos e sistemas de fechadura adaptados ao seu espaço. Opção de banco integrado para vestiários.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lock-img-wrap">LOCKERS</div>
+  </div>
+</section>
 
-Falar pelo WhatsApp
-ATENDEMOS TODO O ESTADO DE SÃO PAULO
+<!-- ESTANTES -->
+<section class="estantes" id="estantes">
+  <div class="s-head">
+    <span class="s-tag">Linha de produtos</span>
+    <h2 class="s-title">Estantes e armários</h2>
+    <p class="s-sub">Organização que se adapta ao seu espaço. Estantes modulares e armários com nichos para ambientes corporativos, educacionais e institucionais.</p>
+  </div>
+  <div class="est-grid">
+    <div class="est-card">
+      <div class="est-num">01</div>
+      <div class="est-title">Modulares e escaláveis</div>
+      <p class="est-text">Configurações sob medida, da pequena sala ao espaço corporativo amplo. Adaptamos ao ambiente existente.</p>
+    </div>
+    <div class="est-card">
+      <div class="est-num">02</div>
+      <div class="est-title">Acabamentos variados</div>
+      <p class="est-text">Madeira, metal, nichos abertos ou fechados, adequamos à identidade do espaço e ao uso pretendido.</p>
+    </div>
+    <div class="est-card">
+      <div class="est-num">03</div>
+      <div class="est-title">Instalação incluída</div>
+      <p class="est-text">Entregamos e instalamos, sem terceiros, sem complicação, sem surpresas. Um único ponto de contato.</p>
+    </div>
+  </div>
+</section>
 
-PROJETO
-Mobi
-© 2026 Projeto Mobi. Todos os direitos reservados.
+<!-- SEGMENTOS -->
+<section class="segmentos" id="segmentos">
+  <div class="s-head">
+    <span class="s-tag">Mercados atendidos</span>
+    <h2 class="s-title">Segmentos atendidos</h2>
+    <p class="s-sub">Soluções para cada tipo de ambiente. Diversas linhas de mobiliário adaptadas ao uso e às exigências de cada setor.</p>
+  </div>
+  <div class="seg-grid">
+    <div class="seg-card"><span class="seg-icon">🏢</span><span class="seg-name">Corporativo</span></div>
+    <div class="seg-card"><span class="seg-icon">🎓</span><span class="seg-name">Educacional</span></div>
+    <div class="seg-card"><span class="seg-icon">🏛️</span><span class="seg-name">Institucional</span></div>
+    <div class="seg-card"><span class="seg-icon">📋</span><span class="seg-name">Público</span></div>
+    <div class="seg-card"><span class="seg-icon">🏥</span><span class="seg-name">Saúde e Hospitalar</span></div>
+    <div class="seg-card"><span class="seg-icon">🍽️</span><span class="seg-name">Auditórios e Refeitórios</span></div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como-funciona">
+  <div class="s-head">
+    <span class="s-tag">Processo</span>
+    <h2 class="s-title s-title-white">Como funciona</h2>
+    <p class="s-sub s-sub-white">Do primeiro contato à instalação. Um processo claro, sem surpresas, para que você foque no seu negócio.</p>
+  </div>
+  <div class="ps-grid">
+    <div class="ps-step">
+      <div class="ps-num">01</div>
+      <div class="ps-title">Contato e levantamento</div>
+      <p class="ps-text">Entendemos o seu espaço, volume, prazo e necessidades do projeto.</p>
+    </div>
+    <div class="ps-step">
+      <div class="ps-num">02</div>
+      <div class="ps-title">Proposta personalizada</div>
+      <p class="ps-text">Proposta detalhada com produtos adequados ao seu ambiente e orçamento.</p>
+    </div>
+    <div class="ps-step">
+      <div class="ps-num">03</div>
+      <div class="ps-title">Aprovação e produção</div>
+      <p class="ps-text">Com a proposta aprovada, iniciamos com acompanhamento direto da nossa equipe.</p>
+    </div>
+    <div class="ps-step">
+      <div class="ps-num">04</div>
+      <div class="ps-title">Entrega e instalação</div>
+      <p class="ps-text">A mesma equipe que conduziu o projeto realiza a entrega e instalação. Sem terceiros.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>"Do projeto à instalação, com a precisão de quem faz isso há 40 anos."</h2>
+  <p>Solicite seu orçamento agora. Nossa equipe retorna com uma proposta clara e sem compromisso. Propostas simples em menos de 24 horas.</p>
+  <a class="btn-final" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" target="_blank">
+    Falar pelo WhatsApp
+  </a>
+  <p class="cta-note">Atendemos todo o Estado de São Paulo</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Projeto <span>Mobi</span></div>
+  <div class="footer-copy">© 2026 Projeto Mobi. Todos os direitos reservados.</div>
+</footer>
+
+</body>
+</html>
