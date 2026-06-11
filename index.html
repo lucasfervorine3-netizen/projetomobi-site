@@ -191,6 +191,27 @@ footer{background:var(--blue);border-top:1px solid rgba(255,255,255,0.08);paddin
   footer{flex-direction:column;gap:12px;text-align:center}
 }
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17041006452"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "AW-17041006452");
+</script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != "undefined") { window.location = url; }
+  };
+  gtag("event", "conversion", {
+    "send_to": "AW-17041006452/PlJUCM_bz9IaEPS-5L0_",
+    "event_callback": callback
+  });
+  return false;
+}
+</script>
 </head>
 <body>
 
@@ -206,7 +227,7 @@ footer{background:var(--blue);border-top:1px solid rgba(255,255,255,0.08);paddin
       <span class="nav-mobi">Mobi</span>
     </div>
   </a>
-  <a class="nav-cta" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" target="_blank">
+  <a class="nav-cta" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href);" target="_blank">
     Solicitar orçamento
   </a>
 </nav>
@@ -223,7 +244,7 @@ footer{background:var(--blue);border-top:1px solid rgba(255,255,255,0.08);paddin
     <h1 class="hero-h1">Do projeto à instalação,<br><em>uma solução completa.</em></h1>
     <p class="hero-sub">Enquanto outras empresas vendem móveis, nós entregamos projetos completos, do levantamento à instalação, para que você não precise gerenciar múltiplos fornecedores.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" target="_blank">
+      <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href);" target="_blank">
         Falar pelo WhatsApp
       </a>
       <a class="btn-secondary" href="#como-funciona">Como funciona</a>
@@ -291,7 +312,7 @@ footer{background:var(--blue);border-top:1px solid rgba(255,255,255,0.08);paddin
       <h2 class="s-title s-title-white">Ambientes reais,<br>produtos reais.</h2>
       <p class="s-sub s-sub-white" style="margin:14px 0 0;text-align:left">Cada ambiente que você vê aqui foi montado com os mesmos produtos que entregamos aos nossos clientes. Venha visitar ou fale conosco pelo WhatsApp.</p>
       <div class="showroom-cta">
-        <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+visita+ao+showroom" target="_blank">Agendar visita</a>
+        <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+visita+ao+showroom" onclick="return gtag_report_conversion(this.href);" target="_blank">Agendar visita</a>
         <span class="showroom-note">Ou fale conosco pelo WhatsApp</span>
       </div>
     </div>
@@ -526,7 +547,7 @@ footer{background:var(--blue);border-top:1px solid rgba(255,255,255,0.08);paddin
 <section class="cta-final">
   <h2>"Do projeto à instalação, com a precisão de quem faz isso há 40 anos."</h2>
   <p>Solicite seu orçamento agora. Nossa equipe retorna com uma proposta clara e sem compromisso. Propostas simples em menos de 24 horas.</p>
-  <a class="btn-final" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" target="_blank">
+  <a class="btn-final" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href);" target="_blank">
     Falar pelo WhatsApp
   </a>
   <p class="cta-note">Atendemos todo o Estado de São Paulo</p>
