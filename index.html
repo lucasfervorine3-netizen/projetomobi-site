@@ -201,9 +201,57 @@ footer{background:var(--blue);border-top:1px solid rgba(255,255,255,0.08);paddin
   gtag("config", "AW-17041006452");
 </script>
 <script>
+// --- Source attribution: tags the WhatsApp message with where the lead came from ---
+function getChannelTag() {
+  try {
+    var cached = sessionStorage.getItem('pm_channel_tag');
+    if (cached) return cached;
+
+    var params = new URLSearchParams(window.location.search);
+    var tag;
+
+    if (params.get('gclid')) {
+      tag = 'Origem: Google Ads';
+    } else if (params.get('utm_source')) {
+      var source = params.get('utm_source');
+      var medium = params.get('utm_medium');
+      var campaign = params.get('utm_campaign');
+      tag = 'Origem: ' + source;
+      if (medium) tag += ' / ' + medium;
+      if (campaign) tag += ' (' + campaign + ')';
+    } else if (document.referrer && document.referrer.indexOf(window.location.hostname) === -1) {
+      try {
+        tag = 'Origem: ' + new URL(document.referrer).hostname;
+      } catch (e) {
+        tag = 'Origem: Direto/Site';
+      }
+    } else {
+      tag = 'Origem: Direto/Site';
+    }
+
+    sessionStorage.setItem('pm_channel_tag', tag);
+    return tag;
+  } catch (e) {
+    return 'Origem: Direto/Site';
+  }
+}
+
+function appendChannelToWhatsAppUrl(url) {
+  try {
+    var urlObj = new URL(url);
+    var currentText = urlObj.searchParams.get('text') || '';
+    var newText = currentText + '\n\n' + getChannelTag();
+    urlObj.searchParams.set('text', newText);
+    return urlObj.toString();
+  } catch (e) {
+    return url;
+  }
+}
+
 function gtag_report_conversion(url) {
+  var finalUrl = appendChannelToWhatsAppUrl(url);
   var callback = function () {
-    if (typeof(url) != "undefined") { window.location = url; }
+    if (typeof(finalUrl) != "undefined") { window.location = finalUrl; }
   };
   gtag("event", "conversion", {
     "send_to": "AW-17041006452/PlJUCM_bz9IaEPS-5L0_",
