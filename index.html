@@ -273,15 +273,28 @@ function appendChannelToWhatsAppUrl(url) {
   }
 }
 
-function gtag_report_conversion(url) {
+function gtag_report_conversion(url, el) {
   var finalUrl = appendChannelToWhatsAppUrl(url);
-  var callback = function () {
-    if (typeof(finalUrl) != "undefined") { window.location = finalUrl; }
+  var done = false;
+  var go = function () {
+    if (done) return;
+    done = true;
+    window.location = finalUrl;
   };
-  gtag("event", "conversion", {
-    "send_to": "AW-17041006452/PlJUCM_bz9IaEPS-5L0_",
-    "event_callback": callback
-  });
+  try {
+    // GA4: clique no WhatsApp (mesmo evento da /lockers)
+    gtag("event", "whatsapp_click", {
+      page: "home",
+      link_text: el ? (el.textContent || "").trim().slice(0, 60) : ""
+    });
+    // Google Ads: conversão de WhatsApp
+    gtag("event", "conversion", {
+      "send_to": "AW-17041006452/PlJUCM_bz9IaEPS-5L0_",
+      "event_callback": go
+    });
+  } catch (e) {}
+  // Se as tags do Google estiverem bloqueadas ou lentas, abre o WhatsApp mesmo assim
+  setTimeout(go, 800);
   return false;
 }
 </script>
@@ -300,7 +313,7 @@ function gtag_report_conversion(url) {
       <span class="nav-mobi">Mobi</span>
     </div>
   </a>
-  <a class="nav-cta" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href);" target="_blank">
+  <a class="nav-cta" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href, this);" target="_blank">
     Solicitar orçamento
   </a>
 </nav>
@@ -317,7 +330,7 @@ function gtag_report_conversion(url) {
     <h1 class="hero-h1">Do projeto à instalação,<br><em>uma solução completa.</em></h1>
     <p class="hero-sub">Enquanto outras empresas vendem móveis, nós entregamos projetos completos, do levantamento à instalação, para que você não precise gerenciar múltiplos fornecedores.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href);" target="_blank">
+      <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href, this);" target="_blank">
         Falar pelo WhatsApp
       </a>
       <a class="btn-secondary" href="#como-funciona">Como funciona</a>
@@ -385,7 +398,7 @@ function gtag_report_conversion(url) {
       <h2 class="s-title s-title-white">Ambientes reais,<br>produtos reais.</h2>
       <p class="s-sub s-sub-white" style="margin:14px 0 0;text-align:left">Cada ambiente que você vê aqui foi montado com os mesmos produtos que entregamos aos nossos clientes. Venha visitar ou fale conosco pelo WhatsApp.</p>
       <div class="showroom-cta">
-        <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+visita+ao+showroom" onclick="return gtag_report_conversion(this.href);" target="_blank">Agendar visita</a>
+        <a class="btn-primary" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+visita+ao+showroom" onclick="return gtag_report_conversion(this.href, this);" target="_blank">Agendar visita</a>
         <span class="showroom-note">Ou fale conosco pelo WhatsApp</span>
       </div>
     </div>
@@ -620,7 +633,7 @@ function gtag_report_conversion(url) {
 <section class="cta-final" id="cta-final>
   <h2>"Do projeto à instalação, com a precisão de quem faz isso há 40 anos."</h2>
   <p>Solicite seu orçamento agora. Nossa equipe retorna com uma proposta clara e sem compromisso. Propostas simples em menos de 24 horas.</p>
-  <a class="btn-final" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href);" target="_blank">
+  <a class="btn-final" href="https://wa.me/5511932188120?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento" onclick="return gtag_report_conversion(this.href, this);" target="_blank">
     Falar pelo WhatsApp
   </a>
   <p class="cta-note">Atendemos todo o Estado de São Paulo</p>
